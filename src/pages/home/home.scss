@@ -1,3 +1,10 @@
 page-home {
-
+    .inner{
+        width: 2000px;
+        height: 100%;
+        ion-card{
+            display: table-cell;
+            border: solid 2px #ccc;
+        }
+    }
 }
