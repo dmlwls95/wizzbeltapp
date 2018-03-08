@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook';
-
+import { SignupPage } from '../signup/signup';
 /**
  * Generated class for the LoginPage page.
  *
@@ -30,7 +30,7 @@ export class LoginPage {
       })
     })
   }
-  moveToPage(pageName: string): void{
-    this.navCtrl.push(pageName);
+  moveToPage(): void{
+    this.navCtrl.push(SignupPage);
   }
 }
