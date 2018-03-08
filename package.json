@@ -32,7 +32,6 @@
     "cordova-plugin-buildinfo": "^2.0.1",
     "cordova-plugin-compat": "^1.2.0",
     "cordova-plugin-device": "^2.0.1",
-    "cordova-plugin-facebook4": "^1.9.1",
     "cordova-plugin-inappbrowser": "^2.0.2",
     "cordova-plugin-ionic-keyboard": "^2.0.5",
     "cordova-plugin-ionic-webview": "^1.1.16",
@@ -54,10 +53,6 @@
   "description": "An Ionic project",
   "cordova": {
     "plugins": {
-      "cordova-plugin-facebook4": {
-        "APP_ID": "1713798155330805",
-        "APP_NAME": "wizzbelt"
-      },
       "cordova-plugin-whitelist": {},
       "cordova-plugin-device": {},
       "cordova-plugin-splashscreen": {},
