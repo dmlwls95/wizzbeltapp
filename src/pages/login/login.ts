@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 //import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook';
 import { SignupPage } from '../signup/signup';
 import firebase from 'firebase';
+import { Facebook } from '@ionic-native/facebook'
 /**
  * Generated class for the LoginPage page.
  *
@@ -17,7 +18,7 @@ import firebase from 'firebase';
 })
 export class LoginPage {
   userData = null;
-constructor(public navCtrl: NavController, public navParams: NavParams,/*private fb: Facebook*/) {
+constructor(public navCtrl: NavController, public navParams: NavParams,public facebook: Facebook) {
   }
 
   ionViewDidLoad() {
@@ -33,14 +34,27 @@ constructor(public navCtrl: NavController, public navParams: NavParams,/*private
   }*/
 
   login(){
-    let provider = new firebase.auth.FacebookAuthProvider();
+    /*let provider = new firebase.auth.FacebookAuthProvider();
     firebase.auth().signInWithRedirect(provider).then(()=>{
       firebase.auth().getRedirectResult().then((result)=>{
         alert(JSON.stringify(result));
       }).catch(function(error){
         alert(JSON.stringify(error))
       });
-    })
+    })*/
+    this.facebook.login(['email'])
+    .then((loginResponse) =>{
+      //let credential = firebase.auth.FacebookAuthProvider.credential(loginResponse.authResponse.accessToken);
+      const facebookCredential = firebase.auth.FacebookAuthProvider
+      .credential(loginResponse.authResponse.accessToken);
+
+      firebase.auth().signInWithCredential(facebookCredential)
+      .then(info =>{
+        alert("Firebase success: ")
+      }).catch(ferr=>{
+        alert("firebase errc")
+      })
+    }).catch(error=> {JSON.stringify(error)})
   }
   moveToPage(): void{
     this.navCtrl.push(SignupPage);

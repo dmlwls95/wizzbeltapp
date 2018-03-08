@@ -3,7 +3,11 @@
   <br>
 <br>
 <br>
-<button ion-button (click)="login()">FACEBOOK1</button>
+<button ion-button (click)="login()">
+  <ion-icon name="logo-facebook">
+    Login with FACEBOOK
+  </ion-icon>
+</button>
 <ion-card *ngIf="userData">
   <ion-card-header>{{ userData.username}}</ion-card-header>
   <img [src]="userData.picture">
