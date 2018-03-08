@@ -3,6 +3,12 @@
     <name>wizzbelt</name>
     <description>An awesome Ionic/Cordova app.</description>
     <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
+    <universal-links>
+        <host name="njab8.app.goo.gl" scheme="https" />
+        <host name="wizzbelt-90d2b.firebaseapp.com" scheme="https">
+            <path url="/__/auth/callback" />
+        </host>
+    </universal-links>
     <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
@@ -20,10 +26,6 @@
     <preference name="SplashScreen" value="screen" />
     <preference name="SplashScreenDelay" value="3000" />
     <platform name="android">
-        <config-file parent="/resources" target="./res/values/strings.xml">
-            <string name="fb_app_id">1234</string>
-            <string name="fb_app_name">foobar</string>
-        </config-file>
         <allow-intent href="market:*" />
         <icon density="ldpi" src="resources/android/icon/drawable-ldpi-icon.png" />
         <icon density="mdpi" src="resources/android/icon/drawable-mdpi-icon.png" />
@@ -92,4 +94,8 @@
     <engine name="ios" spec="4.5.4" />
     <engine name="browser" spec="5.0.3" />
     <engine name="android" spec="7.0.0" />
+    <plugin name="cordova-plugin-buildinfo" spec="^2.0.1" />
+    <plugin name="cordova-plugin-browsertab" spec="^0.2.0" />
+    <plugin name="cordova-plugin-inappbrowser" spec="^2.0.2" />
+    <plugin name="cordova-universal-links-plugin" spec="^1.2.1" />
 </widget>
