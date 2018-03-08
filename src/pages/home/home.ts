@@ -11,7 +11,8 @@ export class HomePage {
   monthTop: any = [];
   cate1Top: any =[];
   cate2Top: any =[];
-
+  
+  
   /*mainconArray: any =[];
   maincons = [];
   infiMain: any =[];*/
