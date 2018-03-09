@@ -11,7 +11,8 @@ export class HomePage {
   monthTop: any = [];
   cate1Top: any =[];
   cate2Top: any =[];
-  
+  tabBarElement: any;
+  splash =true;
   
   /*mainconArray: any =[];
   maincons = [];
@@ -24,6 +25,7 @@ export class HomePage {
   private finishedLoading: boolean = false;*/
 
   constructor(public nvCtrl:NavController) {
+    this.tabBarElement =document.querySelector('.tabbar');
     this.slideArray = [
       {'image':'https://dummyimage.com/375x280/8c8c8c/000000.png'},
       {'image':'https://dummyimage.com/375x280/8c8c8c/000000.png'},
@@ -134,4 +136,12 @@ export class HomePage {
   }*/
 //****************************인피니티 스크롤 끝************* */
   }
+  ionViewDidLoad() {
+    this.tabBarElement.style.display = 'none';
+    setTimeout(() => {
+      this.splash = false;
+      this.tabBarElement.style.display = 'flex';
+    }, 4000);
+  }
+
 }

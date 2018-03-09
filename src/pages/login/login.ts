@@ -41,21 +41,33 @@ constructor(public navCtrl: NavController, public navParams: NavParams,public fa
       }).catch(function(error){
         alert(JSON.stringify(error))
       });
-    })*/
+    })//구분선~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     this.facebook.login(['email'])
-    .then((loginResponse) =>{
+    .then((loginResponse:FacebookLoginResponse) =>{
       //let credential = firebase.auth.FacebookAuthProvider.credential(loginResponse.authResponse.accessToken);
-      const facebookCredential = firebase.auth.FacebookAuthProvider
+      let facebookCredential = firebase.auth.FacebookAuthProvider
       .credential(loginResponse.authResponse.accessToken);
 
       firebase.auth().signInWithCredential(facebookCredential)
-      .then(info =>{
-        alert("Firebase success: ")
+      .then(succese =>{
+        alert("Firebase success: "+JSON.stringify(succese));
       }).catch(ferr=>{
         alert("firebase errc")
       })
-    }).catch(error=> {JSON.stringify(error)})
+    }).catch(error=> {JSON.stringify(error)})*/
+    var provider = new firebase.auth.FacebookAuthProvider();
+
+    provider.addScope('email');
+
+    firebase.auth().signInWithRedirect(provider);
+
+    firebase.auth().getRedirectResult().then(function(authData) {
+      console.log(authData);
+    }).catch(function(error) {
+      console.log(error);
+    });
   }
+  
   moveToPage(): void{
     this.navCtrl.push(SignupPage);
   }
