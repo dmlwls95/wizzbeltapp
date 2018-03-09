@@ -2,6 +2,10 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
+import { AngularFireModule, FirebaseAppConfigToken, FirebaseAppProvider } from 'Angularfire2'
+import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth'
+import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
+
 
 import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
@@ -14,17 +18,11 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { Facebook } from '@ionic-native/facebook';
 import { SignupPage } from '../pages/signup/signup';
 import { SearchPage } from '../pages/search/search';
+import { environment } from '../environments/environment';
 
-import firebase from 'firebase';
 
-firebase.initializeApp({
-  apiKey: "AIzaSyDjM9A7kDog6ieZj-B8QHXiNE9fvMEI8ZY",
-  authDomain: "wizzbelt-90d2b.firebaseapp.com",
-  databaseURL: "https://wizzbelt-90d2b.firebaseio.com",
-  projectId: "wizzbelt-90d2b",
-  storageBucket: "wizzbelt-90d2b.appspot.com",
-  messagingSenderId: "432919344129"
-});
+  
+
 
 @NgModule({
   declarations: [
@@ -39,7 +37,10 @@ firebase.initializeApp({
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
+    AngularFireDatabaseModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -57,6 +58,7 @@ firebase.initializeApp({
     SplashScreen,
     Facebook,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
+    AngularFireDatabase
   ]
 })
 export class AppModule {}

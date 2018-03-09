@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 //import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook';
 import { SignupPage } from '../signup/signup';
-import firebase from 'firebase';
+import { AngularFireAuth } from 'angularfire2/auth';
+import * as firebase from 'firebase/app';
 import { Facebook } from '@ionic-native/facebook'
 /**
  * Generated class for the LoginPage page.
@@ -18,7 +19,7 @@ import { Facebook } from '@ionic-native/facebook'
 })
 export class LoginPage {
   userData = null;
-constructor(public navCtrl: NavController, public navParams: NavParams,public facebook: Facebook) {
+constructor(private afAuth: AngularFireAuth,public navCtrl: NavController, public navParams: NavParams,public facebook: Facebook) {
   }
 
   ionViewDidLoad() {
@@ -33,7 +34,7 @@ constructor(public navCtrl: NavController, public navParams: NavParams,public fa
     })
   }*/
 
-  login(){
+  /*login(){
     /*let provider = new firebase.auth.FacebookAuthProvider();
     firebase.auth().signInWithRedirect(provider).then(()=>{
       firebase.auth().getRedirectResult().then((result)=>{
@@ -54,7 +55,7 @@ constructor(public navCtrl: NavController, public navParams: NavParams,public fa
       }).catch(ferr=>{
         alert("firebase errc")
       })
-    }).catch(error=> {JSON.stringify(error)})*/
+    }).catch(error=> {JSON.stringify(error)})
     var provider = new firebase.auth.FacebookAuthProvider();
 
     provider.addScope('email');
@@ -66,6 +67,15 @@ constructor(public navCtrl: NavController, public navParams: NavParams,public fa
     }).catch(function(error) {
       console.log(error);
     });
+  }*/
+  signInWithFacebook() {
+    this.afAuth.auth
+      .signInWithPopup(new firebase.auth.FacebookAuthProvider())
+      .then(res => console.log(res));
+  }
+
+  signOut() {
+    this.afAuth.auth.signOut();
   }
   
   moveToPage(): void{
