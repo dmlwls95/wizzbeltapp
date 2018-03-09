@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { AngularFireDatabase } from 'angularfire2/database';
+import { Observable } from 'rxjs/Observable';
 import { Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -27,7 +29,5 @@ export class MyApp {
       statusBar.styleDefault();
       splashScreen.hide();
     });
-
-    
   }
 }

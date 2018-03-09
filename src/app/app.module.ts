@@ -2,10 +2,9 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
-import { AngularFireModule, FirebaseAppConfigToken, FirebaseAppProvider } from 'Angularfire2'
-import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth'
-import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
-
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import{ AngularFirestoreModule } from 'angularfire2/firestore';
 
 import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
@@ -21,7 +20,6 @@ import { SearchPage } from '../pages/search/search';
 import { environment } from '../environments/environment';
 
 
-  
 
 
 @NgModule({
@@ -39,8 +37,8 @@ import { environment } from '../environments/environment';
     BrowserModule,
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireAuthModule,
-    AngularFireDatabaseModule
+    AngularFirestoreModule.enablePersistence(),
+    AngularFireAuthModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -58,7 +56,6 @@ import { environment } from '../environments/environment';
     SplashScreen,
     Facebook,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    AngularFireDatabase
   ]
 })
 export class AppModule {}
