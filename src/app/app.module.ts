@@ -1,4 +1,4 @@
-import { NgModule, ErrorHandler } from '@angular/core';
+import { NgModule, ErrorHandler, Directive } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
@@ -18,9 +18,8 @@ import { Facebook } from '@ionic-native/facebook';
 import { SignupPage } from '../pages/signup/signup';
 import { SearchPage } from '../pages/search/search';
 import { environment } from '../environments/environment';
-
-
-
+import { MyinfoPage } from '../pages/myinfo/myinfo'
+import { HideheaderDirective } from '../directives/hideheader/hideheader'
 
 @NgModule({
   declarations: [
@@ -31,7 +30,9 @@ import { environment } from '../environments/environment';
     TabsPage,
     LoginPage,
     SignupPage,
-    SearchPage
+    SearchPage,
+    MyinfoPage,
+    HideheaderDirective
   ],
   imports: [
     BrowserModule,
@@ -49,7 +50,8 @@ import { environment } from '../environments/environment';
     TabsPage,
     LoginPage,
     SignupPage,
-    SearchPage
+    SearchPage,
+    MyinfoPage
   ],
   providers: [
     StatusBar,

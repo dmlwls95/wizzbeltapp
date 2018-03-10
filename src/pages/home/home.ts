@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { NavController} from 'ionic-angular';
+import { Content } from 'ionic-angular';
 //import firebase from 'firebase';
 
 @Component({
@@ -7,12 +8,16 @@ import { NavController} from 'ionic-angular';
   templateUrl: 'home.html'
 })
 export class HomePage {
+  @ViewChild("contentRef") contentHandle: Content;
   slideArray: any = []; //첫번째 슬라이드 영역 이미지 어레이
   monthTop: any = [];
   cate1Top: any =[];
   cate2Top: any =[];
   tabBarElement: any;
   splash =true;
+  private tabBarHeight;
+  private topOrBottom:string;
+  private contentBox;
   
   /*mainconArray: any =[];
   maincons = [];
@@ -143,5 +148,34 @@ export class HomePage {
       this.tabBarElement.style.display = 'flex';
     }, 4000);
   }
-
+  ionViewDidEnter() {
+    this.topOrBottom=this.contentHandle._tabsPlacement;
+    this.contentBox=document.querySelector(".scroll-content")['style'];
+  
+    if (this.topOrBottom == "top") {
+      this.tabBarHeight = this.contentBox.marginTop;
+    } else if (this.topOrBottom == "bottom") {
+      this.tabBarHeight = this.contentBox.marginBottom;
+    }
+  }
+ 
+  scrollingFun(e) {
+    if (e.scrollTop > this.contentHandle.getContentDimensions().contentHeight) {
+      document.querySelector(".tabbar")['style'].display = 'none';
+      if (this.topOrBottom == "top") {
+        this.contentBox.marginTop = 0;
+      } else if (this.topOrBottom == "bottom") {
+        this.contentBox.marginBottom = 0;
+      }
+ 
+    } else {
+      document.querySelector(".tabbar")['style'].display = 'flex';
+      if (this.topOrBottom == "top") {
+        this.contentBox.marginTop = this.tabBarHeight;
+      } else if (this.topOrBottom == "bottom") {
+        this.contentBox.marginBottom = this.tabBarHeight;
+      }
+ 
+    }//if else
+  }//scrollingFun
 }
