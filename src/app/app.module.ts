@@ -1,4 +1,4 @@
-import { NgModule, ErrorHandler, Directive } from '@angular/core';
+import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
@@ -18,8 +18,9 @@ import { Facebook } from '@ionic-native/facebook';
 import { SignupPage } from '../pages/signup/signup';
 import { SearchPage } from '../pages/search/search';
 import { environment } from '../environments/environment';
-import { MyinfoPage } from '../pages/myinfo/myinfo'
-import { HideheaderDirective } from '../directives/hideheader/hideheader'
+import { MyinfoPage } from '../pages/myinfo/myinfo';
+import { ElasticHeaderModule } from "ionic2-elastic-header/dist";
+
 
 @NgModule({
   declarations: [
@@ -31,15 +32,15 @@ import { HideheaderDirective } from '../directives/hideheader/hideheader'
     LoginPage,
     SignupPage,
     SearchPage,
-    MyinfoPage,
-    HideheaderDirective
+    MyinfoPage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule.enablePersistence(),
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    ElasticHeaderModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
