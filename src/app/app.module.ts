@@ -20,7 +20,7 @@ import { SearchPage } from '../pages/search/search';
 import { environment } from '../environments/environment';
 import { MyinfoPage } from '../pages/myinfo/myinfo';
 import { ElasticHeaderModule } from "ionic2-elastic-header/dist";
-
+import { SettingsPage } from '../pages/settings/settings'
 
 @NgModule({
   declarations: [
@@ -32,7 +32,8 @@ import { ElasticHeaderModule } from "ionic2-elastic-header/dist";
     LoginPage,
     SignupPage,
     SearchPage,
-    MyinfoPage
+    MyinfoPage,
+    SettingsPage
   ],
   imports: [
     BrowserModule,
@@ -52,7 +53,8 @@ import { ElasticHeaderModule } from "ionic2-elastic-header/dist";
     LoginPage,
     SignupPage,
     SearchPage,
-    MyinfoPage
+    MyinfoPage,
+    SettingsPage
   ],
   providers: [
     StatusBar,

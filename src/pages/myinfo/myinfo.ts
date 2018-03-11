@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import { SettingsPage } from '../settings/settings'
+import { LoginPage } from '../login/login';
+import { SignupPage } from '../signup/signup';
 /**
  * Generated class for the MyinfoPage page.
  *
@@ -21,5 +23,13 @@ export class MyinfoPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad MyinfoPage');
   }
-
+  menu(){
+    this.navCtrl.push(SettingsPage)
+  }
+  openLogin(){
+    this.navCtrl.push(LoginPage)
+  }
+  openSignup(){
+    this.navCtrl.push(SignupPage)
+  }
 }

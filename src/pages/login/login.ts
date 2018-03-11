@@ -81,4 +81,7 @@ constructor(private afAuth: AngularFireAuth,public navCtrl: NavController, publi
   moveToPage(): void{
     this.navCtrl.push(SignupPage);
   }
+  backPage(){
+    this.navCtrl.pop();
+  }
 }

@@ -6,14 +6,34 @@
 -->
 <ion-header [elasticHeader]="myContent">
 
-  <ion-navbar>
-    <ion-title>myinfo</ion-title>
-  </ion-navbar>
-
-</ion-header>
+    <ion-navbar>
+      <ion-buttons start>
+        <button ion-button icon-only (click)="menu()">
+          <ion-icon name="settings"></ion-icon>
+        </button>
+      </ion-buttons>
+    
+        <ion-title>
+          Page Title
+        </ion-title>
+    
+        <ion-buttons end>
+          <button ion-button icon-only (click)="openModal()">
+            <ion-icon name="options"></ion-icon>
+          </button>
+        </ion-buttons>
+      </ion-navbar>
+    
+    </ion-header>
 
 
 <ion-content padding fullscreen #myContent>
+  <button ion-button (click)="openLogin()">
+    로그인
+  </button><br>
+  <button ion-button (click)="openSignup()">
+    회원가입
+  </button><br>
   Please subscribe my channel to reach 10K!
 
 Please like and share my videos. Thanks
