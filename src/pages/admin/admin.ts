@@ -19,10 +19,6 @@ export class AdminPage {
   constructor(public navCtrl: NavController, public firebaseProvider: FirebaseProvider) {
     this.shoppingItems = this.firebaseProvider.getShoppingItems();
   }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad AdminPage');
-  }
   addItem() {
     this.firebaseProvider.addItem(this.newItem);
   }
@@ -30,5 +26,10 @@ export class AdminPage {
   removeItem(id) {
     this.firebaseProvider.removeItem(id);
   }
+
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad AdminPage');
+  }
+  
 
 }
