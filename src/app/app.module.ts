@@ -25,6 +25,7 @@ import { FirebaseProvider } from '../providers/firebase/firebase';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AdminPage } from '../pages/admin/admin';
 import { AngularFireDatabase } from 'angularfire2/database'
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { AngularFireDatabase } from 'angularfire2/database'
     AngularFirestoreModule.enablePersistence(),
     AngularFireAuthModule,
     AngularFireDatabaseModule,
-    ElasticHeaderModule
+    ElasticHeaderModule,
+    HttpClientModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -67,6 +69,7 @@ import { AngularFireDatabase } from 'angularfire2/database'
     StatusBar,
     SplashScreen,
     Facebook,
+    HttpClientModule,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     FirebaseProvider,
   ]
