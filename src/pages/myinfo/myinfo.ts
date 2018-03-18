@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { SettingsPage } from '../settings/settings'
 import { LoginPage } from '../login/login';
 import { SignupPage } from '../signup/signup';
+import { AdminPage } from '../admin/admin';
 /**
  * Generated class for the MyinfoPage page.
  *
@@ -31,5 +32,8 @@ export class MyinfoPage {
   }
   openSignup(){
     this.navCtrl.push(SignupPage)
+  }
+  admin(){
+    this.navCtrl.push(AdminPage)
   }
 }

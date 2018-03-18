@@ -7,9 +7,14 @@
 </div>
 
 <ion-content padding #contentRef (ionScroll)="scrollingFun($event)">
-  <ion-slides style="width:100%; height: 250px">
+ <!-- <ion-slides style="width:100%; height: 250px">
     <ion-slide *ngFor="let image of slideArray">
         <img src="{{image.image}}">
+    </ion-slide>
+  </ion-slides>-->
+  <ion-slides style="width:100%; height: 250px">
+    <ion-slide *ngFor="let image of slideItems | async" >
+        <img src="{{img}}">
     </ion-slide>
   </ion-slides>
  <br>

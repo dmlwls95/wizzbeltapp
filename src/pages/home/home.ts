@@ -2,10 +2,13 @@ import { Component, ViewChild } from '@angular/core';
 import { NavController} from 'ionic-angular';
 import { Content } from 'ionic-angular';
 //import firebase from 'firebase';
+import { FirebaseListObservable } from 'angularfire2/database-deprecated'
+import { FirebaseProvider } from '../../providers/firebase/firebase';
 
 @Component({
   selector: 'page-home',
-  templateUrl: 'home.html'
+  templateUrl: 'home.html',
+  providers: [FirebaseProvider]
 })
 export class HomePage {
   @ViewChild("contentRef") contentHandle: Content;
@@ -18,7 +21,9 @@ export class HomePage {
   private tabBarHeight;
   private topOrBottom:string;
   private contentBox;
-  
+
+  slideItems: FirebaseListObservable<any[]>;
+  newItem = '';
   /*mainconArray: any =[];
   maincons = [];
   infiMain: any =[];*/
@@ -29,7 +34,8 @@ export class HomePage {
   private lastId: any;
   private finishedLoading: boolean = false;*/
 
-  constructor(public nvCtrl:NavController) {
+  constructor(public nvCtrl:NavController, public firebaseProvider: FirebaseProvider) {
+    this.slideItems = this.firebaseProvider.getShoppingItems();
     this.tabBarElement =document.querySelector('.tabbar');
     this.slideArray = [
       {'image':'https://dummyimage.com/375x280/8c8c8c/000000.png'},
@@ -178,4 +184,11 @@ export class HomePage {
  
     }//if else
   }//scrollingFun
+  addItem() {
+    this.firebaseProvider.addItem(this.newItem);
+  }
+ 
+  removeItem(id) {
+    this.firebaseProvider.removeItem(id);
+  }
 }
