@@ -36,7 +36,7 @@ export class HomePage {
 
   constructor(public nvCtrl:NavController, public firebaseProvider: FirebaseProvider) {
     this.slideItems = this.firebaseProvider.getslideItems();
-    this.monthTop = this.firebaseProvider.getMonthtopItems();
+    this.MonthtopItems = this.firebaseProvider.getMonthtopItems();
     this.tabBarElement =document.querySelector('.tabbar');
     this.monthTop =[
       {'image':'https://dummyimage.com/100x100/8c8c8c/000000.png'},

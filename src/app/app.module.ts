@@ -27,6 +27,8 @@ import { AdminPage } from '../pages/admin/admin';
 import { AngularFireDatabase } from 'angularfire2/database'
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 
+import { IonicImageViewerModule } from 'ionic-img-viewer';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -49,7 +51,8 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
     AngularFireAuthModule,
     AngularFireDatabaseModule,
     ElasticHeaderModule,
-    HttpClientModule
+    HttpClientModule,
+    IonicImageViewerModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

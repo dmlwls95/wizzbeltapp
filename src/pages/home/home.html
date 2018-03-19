@@ -13,16 +13,14 @@
     </ion-slide>
   </ion-slides>
  <br>
- <ion-label>
+  <ion-label>
     이달의 인기상품
   </ion-label>
-  <ion-scroll scrollX="true" style="height:150px">
-    <div class ="inner">
-      <ion-card *ngFor="let image of MonthtopItems">
-          <img src="{{image.$value}}">
-      </ion-card>
-      </div>
-  </ion-scroll>
+  <ion-slides  class="image-slider" slidesPerView="3" style=" height: 150px">
+    <ion-slide *ngFor="let image of MonthtopItems | async">
+      <img src="{{image.$value}}">
+    </ion-slide>
+  </ion-slides>
 <ion-label>
     카테고리1 인기상품
   </ion-label>
