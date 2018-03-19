@@ -17,6 +17,7 @@ export class AdminPage {
   slideItems: FirebaseListObservable<any[]>;
   MonthtopItems: FirebaseListObservable<any[]>;
   newItem = '';
+  newMonthItme = '';
   constructor(public navCtrl: NavController, public firebaseProvider: FirebaseProvider) {
     this.slideItems = this.firebaseProvider.getslideItems();
     this.MonthtopItems = this.firebaseProvider.getMonthtopItems();
@@ -32,7 +33,7 @@ export class AdminPage {
 //***************slideEnd */
 //***************monthtopStart */
   addMonthtopItem() {
-    this.firebaseProvider.addMonthtopItem(this.newItem);
+    this.firebaseProvider.addMonthtopItem(this.newMonthItme);
   }
 
   removeMonthtopItem(id) {
