@@ -14,11 +14,14 @@ import { FirebaseListObservable } from 'angularfire2/database-deprecated';
   templateUrl: 'admin.html',
 })
 export class AdminPage {
-  shoppingItems: FirebaseListObservable<any[]>;
+  slideItems: FirebaseListObservable<any[]>;
+  MonthtopItems: FirebaseListObservable<any[]>;
   newItem = '';
   constructor(public navCtrl: NavController, public firebaseProvider: FirebaseProvider) {
-    this.shoppingItems = this.firebaseProvider.getslideItems();
+    this.slideItems = this.firebaseProvider.getslideItems();
+    this.MonthtopItems = this.firebaseProvider.getMonthtopItems();
   }
+  //************slide start */
   addslideItem() {
     this.firebaseProvider.addslideItem(this.newItem);
   }
@@ -26,7 +29,15 @@ export class AdminPage {
   removeslideItem(id) {
     this.firebaseProvider.removeslideItem(id);
   }
+//***************slideEnd */
+//***************monthtopStart */
+  addMonthtopItem() {
+    this.firebaseProvider.addMonthtopItem(this.newItem);
+  }
 
+  removeMonthtopItem(id) {
+    this.firebaseProvider.removeMonthtopItem(id);
+  }
   ionViewDidLoad() {
     console.log('ionViewDidLoad AdminPage');
   }

@@ -12,7 +12,6 @@ import { FirebaseProvider } from '../../providers/firebase/firebase';
 })
 export class HomePage {
   @ViewChild("contentRef") contentHandle: Content;
-  slideArray: any = []; //첫번째 슬라이드 영역 이미지 어레이
   monthTop: any = [];
   cate1Top: any =[];
   cate2Top: any =[];
@@ -23,6 +22,7 @@ export class HomePage {
   private contentBox;
 
   slideItems: FirebaseListObservable<any[]>;
+  MonthtopItems: FirebaseListObservable<any[]>;
   newItem = '';
   /*mainconArray: any =[];
   maincons = [];
@@ -36,13 +36,8 @@ export class HomePage {
 
   constructor(public nvCtrl:NavController, public firebaseProvider: FirebaseProvider) {
     this.slideItems = this.firebaseProvider.getslideItems();
+    this.monthTop = this.firebaseProvider.getMonthtopItems();
     this.tabBarElement =document.querySelector('.tabbar');
-    this.slideArray = [
-      {'image':'https://dummyimage.com/375x280/8c8c8c/000000.png'},
-      {'image':'https://dummyimage.com/375x280/8c8c8c/000000.png'},
-      {'image':'https://dummyimage.com/375x280/8c8c8c/000000.png'},
-      {'image':'https://dummyimage.com/375x280/8c8c8c/000000.png'}
-    ]; //최상단 쇼업 슬라이드 어레이
     this.monthTop =[
       {'image':'https://dummyimage.com/100x100/8c8c8c/000000.png'},
       {'image':'https://dummyimage.com/100x100/8c8c8c/000000.png'},

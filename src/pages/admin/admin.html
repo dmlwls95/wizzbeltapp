@@ -13,7 +13,7 @@
   <ion-row>
     <ion-col col-9>
       <ion-item>
-        <ion-input type="text" [(ngModel)]="newItem" placeholder="New Shopping item"></ion-input>
+        <ion-input type="text" [(ngModel)]="newItem" placeholder="New slide item"></ion-input>
       </ion-item>
     </ion-col>
     <ion-col>
@@ -22,7 +22,7 @@
   </ion-row>
  
   <ion-list>
-    <ion-item-sliding *ngFor="let item of shoppingItems | async">
+    <ion-item-sliding *ngFor="let item of slideItems | async">
       <ion-item>
         {{ item.$value }}
       </ion-item>
@@ -31,4 +31,30 @@
       </ion-item-options>
     </ion-item-sliding>
   </ion-list>
+  <!--슬라이드 컨텐츠-->
+  <br>
+  <ion-label>
+    이달의 인기상품
+  </ion-label>
+    <ion-row>
+    <ion-col col-9>
+      <ion-item>
+        <ion-input type="text" [(ngModel)]="newItem" placeholder="New monthtop item"></ion-input>
+      </ion-item>
+    </ion-col>
+    <ion-col>
+      <button ion-button (click)="addMonthtopItem()">Add!</button>
+    </ion-col>
+    </ion-row>
+
+    <ion-list>
+    <ion-item-sliding *ngFor="let item of MonthtopItems | async">
+      <ion-item>
+        {{ item.$value }}
+      </ion-item>
+      <ion-item-options side="right">
+        <button ion-button color="danger" icon-only (click)="removeMonthtopItem(item.$key)"><ion-icon name="trash"></ion-icon></button>
+      </ion-item-options>
+    </ion-item-sliding>
+    </ion-list>
 </ion-content>
