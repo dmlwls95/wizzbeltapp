@@ -17,14 +17,14 @@ export class AdminPage {
   shoppingItems: FirebaseListObservable<any[]>;
   newItem = '';
   constructor(public navCtrl: NavController, public firebaseProvider: FirebaseProvider) {
-    this.shoppingItems = this.firebaseProvider.getShoppingItems();
+    this.shoppingItems = this.firebaseProvider.getslideItems();
   }
-  addItem() {
-    this.firebaseProvider.addItem(this.newItem);
+  addslideItem() {
+    this.firebaseProvider.addslideItem(this.newItem);
   }
  
-  removeItem(id) {
-    this.firebaseProvider.removeItem(id);
+  removeslideItem(id) {
+    this.firebaseProvider.removeslideItem(id);
   }
 
   ionViewDidLoad() {

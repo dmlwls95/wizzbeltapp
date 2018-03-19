@@ -6,15 +6,15 @@ export class FirebaseProvider {
  
   constructor(public afd: AngularFireDatabase) { }
  
-  getShoppingItems() {
+  getslideItems() {
     return this.afd.list('/mainItems/');
   }
  
-  addItem(name) {
+  addslideItem(name) {
     this.afd.list('/mainItems/').push(name);
   }
  
-  removeItem(id) {
+  removeslideItem(id) {
     this.afd.list('/mainItems/').remove(id);
   }
 }

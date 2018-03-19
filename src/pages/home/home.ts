@@ -35,7 +35,7 @@ export class HomePage {
   private finishedLoading: boolean = false;*/
 
   constructor(public nvCtrl:NavController, public firebaseProvider: FirebaseProvider) {
-    this.slideItems = this.firebaseProvider.getShoppingItems();
+    this.slideItems = this.firebaseProvider.getslideItems();
     this.tabBarElement =document.querySelector('.tabbar');
     this.slideArray = [
       {'image':'https://dummyimage.com/375x280/8c8c8c/000000.png'},
@@ -184,11 +184,11 @@ export class HomePage {
  
     }//if else
   }//scrollingFun
-  addItem() {
-    this.firebaseProvider.addItem(this.newItem);
+  addslideItem() {
+    this.firebaseProvider.addslideItem(this.newItem);
   }
  
-  removeItem(id) {
-    this.firebaseProvider.removeItem(id);
+  removeslideItem(id) {
+    this.firebaseProvider.removeslideItem(id);
   }
 }
