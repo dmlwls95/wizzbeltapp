@@ -22,7 +22,7 @@ import { MyinfoPage } from '../pages/myinfo/myinfo';
 import { ElasticHeaderModule } from "ionic2-elastic-header/dist";
 import { SettingsPage } from '../pages/settings/settings'
 import { FirebaseProvider } from '../providers/firebase/firebase';
-import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireDatabaseModule } from 'angularfire2/database-deprecated';
 import { AdminPage } from '../pages/admin/admin';
 import { AngularFireDatabase } from 'angularfire2/database'
 import { HttpClientModule, HttpClient } from '@angular/common/http';
