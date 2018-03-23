@@ -84,4 +84,5 @@ constructor(private afAuth: AngularFireAuth,public navCtrl: NavController, publi
   backPage(){
     this.navCtrl.pop();
   }
+  
 }

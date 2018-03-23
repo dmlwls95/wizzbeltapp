@@ -16,11 +16,17 @@ import { FirebaseListObservable } from 'angularfire2/database-deprecated';
 export class AdminPage {
   slideItems: FirebaseListObservable<any[]>;
   MonthtopItems: FirebaseListObservable<any[]>;
+  cate1topItems: FirebaseListObservable<any[]>;
+  cate2topItems: FirebaseListObservable<any[]>;
   newItem = '';
   newMonthItme = '';
+  newcate1Itme = '';
+  newcate2Itme = '';
   constructor(public navCtrl: NavController, public firebaseProvider: FirebaseProvider) {
     this.slideItems = this.firebaseProvider.getslideItems();
     this.MonthtopItems = this.firebaseProvider.getMonthtopItems();
+    this.cate1topItems = this.firebaseProvider.getcate1topItems();
+    this.cate2topItems = this.firebaseProvider.getcate2topItems();
   }
   //************slide start */
   addslideItem() {
@@ -31,6 +37,7 @@ export class AdminPage {
     this.firebaseProvider.removeslideItem(id);
   }
 //***************slideEnd */
+
 //***************monthtopStart */
   addMonthtopItem() {
     this.firebaseProvider.addMonthtopItem(this.newMonthItme);
@@ -39,6 +46,31 @@ export class AdminPage {
   removeMonthtopItem(id) {
     this.firebaseProvider.removeMonthtopItem(id);
   }
+//***************monthtopEnd */
+
+//***************cate1topStart */
+addcate1topItem() {
+  this.firebaseProvider.addcate1topItem(this.newcate1Itme);
+}
+
+removecate1topItem(id) {
+  this.firebaseProvider.removecate1topItem(id);
+}
+//***************cate1topEnd */
+
+//***************cate2topStart */
+addcate2topItem() {
+  this.firebaseProvider.addcate2topItem(this.newcate2Itme);
+}
+
+removecate2topItem(id) {
+  this.firebaseProvider.removecate2topItem(id);
+}
+//***************cate2topEnd */
+
+
+
+
   ionViewDidLoad() {
     console.log('ionViewDidLoad AdminPage');
   }

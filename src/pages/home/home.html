@@ -24,64 +24,19 @@
 <ion-label>
     카테고리1 인기상품
   </ion-label>
-  <ion-scroll scrollX="true" style="width:100%; height:150px">
-      <div class ="inner">
-        <ion-card *ngFor="let image of cate1Top">
-            <img src="{{image.image}}">
-        </ion-card>
-        </div>
-    </ion-scroll>
+  <ion-slides  class="image-slider" slidesPerView="3" style=" height: 150px">
+    <ion-slide *ngFor="let image of cate1topItems | async">
+      <img src="{{image.$value}}">
+    </ion-slide>
+  </ion-slides>
 <ion-label>
     카테고리2 인기상품
   </ion-label>
-  <ion-scroll scrollX="true" style="width:100%; height:150px">
-      <div class ="inner">
-        <ion-card *ngFor="let image of cate2Top">
-            <img src="{{image.image}}">
-        </ion-card>
-        </div>
-    </ion-scroll>
-    <ion-label>
-      카테고리3 인기상품
-    </ion-label>
-    <ion-scroll scrollX="true" style="width:100%; height:150px">
-        <div class ="inner">
-          <ion-card *ngFor="let image of cate2Top">
-              <img src="{{image.image}}">
-          </ion-card>
-          </div>
-      </ion-scroll>
-      <ion-label>
-        카테고리2 인기상품
-      </ion-label>
-      <ion-scroll scrollX="true" style="width:100%; height:150px">
-          <div class ="inner">
-            <ion-card *ngFor="let image of cate2Top">
-                <img src="{{image.image}}">
-            </ion-card>
-            </div>
-        </ion-scroll>
-        <ion-label>
-          카테고리2 인기상품
-        </ion-label>
-        <ion-scroll scrollX="true" style="width:100%; height:150px">
-            <div class ="inner">
-              <ion-card *ngFor="let image of cate2Top">
-                  <img src="{{image.image}}">
-              </ion-card>
-              </div>
-          </ion-scroll>
-          <ion-label>
-            카테고리2 인기상품
-          </ion-label>
-          <ion-scroll scrollX="true" style="width:100%; height:150px">
-              <div class ="inner">
-                <ion-card *ngFor="let image of cate2Top">
-                    <img src="{{image.image}}">
-                </ion-card>
-                </div>
-            </ion-scroll>
-
+  <ion-slides  class="image-slider" slidesPerView="3" style=" height: 150px">
+    <ion-slide *ngFor="let image of cate2topItems | async">
+      <img src="{{image.$value}}">
+    </ion-slide>
+  </ion-slides>
 <!--  <ion-card *ngFor="let image of mainconArray">
     <img src="{{image.image}}">
   </ion-card>

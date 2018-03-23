@@ -23,6 +23,8 @@ export class HomePage {
 
   slideItems: FirebaseListObservable<any[]>;
   MonthtopItems: FirebaseListObservable<any[]>;
+  cate1topItems: FirebaseListObservable<any[]>;
+  cate2topItems: FirebaseListObservable<any[]>;
   newItem = '';
   /*mainconArray: any =[];
   maincons = [];
@@ -37,51 +39,13 @@ export class HomePage {
   constructor(public nvCtrl:NavController, public firebaseProvider: FirebaseProvider) {
     this.slideItems = this.firebaseProvider.getslideItems();
     this.MonthtopItems = this.firebaseProvider.getMonthtopItems();
+    this.cate1topItems = this.firebaseProvider.getcate1topItems();
+    this.cate2topItems = this.firebaseProvider.getcate2topItems();
+
+
+
     this.tabBarElement =document.querySelector('.tabbar');
-    this.monthTop =[
-      {'image':'https://dummyimage.com/100x100/8c8c8c/000000.png'},
-      {'image':'https://dummyimage.com/100x100/8c8c8c/000000.png'},
-      {'image':'https://dummyimage.com/100x100/8c8c8c/000000.png'},
-      {'image':'https://dummyimage.com/100x100/8c8c8c/000000.png'},
-      {'image':'https://dummyimage.com/100x100/8c8c8c/000000.png'},
-      {'image':'https://dummyimage.com/100x100/8c8c8c/000000.png'},
-      {'image':'https://dummyimage.com/100x100/8c8c8c/000000.png'},
-      {'image':'https://dummyimage.com/100x100/8c8c8c/000000.png'},
-      {'image':'https://dummyimage.com/100x100/8c8c8c/000000.png'},
-      {'image':'https://dummyimage.com/100x100/8c8c8c/000000.png'},
-      {'image':'https://dummyimage.com/100x100/8c8c8c/000000.png'},
-      {'image':'https://dummyimage.com/100x100/8c8c8c/000000.png'}
-    ]
-    this.cate1Top =[
-      {'image':'https://dummyimage.com/100x100/8c8c8c/000000.png'},
-      {'image':'https://dummyimage.com/100x100/8c8c8c/000000.png'},
-      {'image':'https://dummyimage.com/100x100/8c8c8c/000000.png'},
-      {'image':'https://dummyimage.com/100x100/8c8c8c/000000.png'}
-    ]
-    this.cate2Top =[
-      {'image':'https://dummyimage.com/100x100/8c8c8c/000000.png'},
-      {'image':'https://dummyimage.com/100x100/8c8c8c/000000.png'},
-      {'image':'https://dummyimage.com/100x100/8c8c8c/000000.png'},
-      {'image':'https://dummyimage.com/100x100/8c8c8c/000000.png'}
-    ]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    
 
 
 
