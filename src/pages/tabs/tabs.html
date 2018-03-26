@@ -1,5 +1,7 @@
 <ion-tabs>
   <ion-tab [root]="tab1Root" tabTitle="Home" tabIcon="home"></ion-tab>
-  <ion-tab [root]="tab2Root" tabTitle="MYINFO" tabIcon="contacts"></ion-tab>
+  <ion-tab [root]="tab2Root" tabTitle="Login" tabIcon="contacts"></ion-tab>
+  <ion-tab [root]="tab4Root" tabTitle="Myinfo" tabIcon="contacts" *ngIf="authcom"></ion-tab>
   <ion-tab [root]="tab3Root" tabTitle="Search" tabIcon="information-circle"></ion-tab>
 </ion-tabs>
+

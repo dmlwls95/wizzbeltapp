@@ -1,16 +1,11 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { IonicPage, NavController, NavParams,ToastController } from 'ionic-angular';
 //import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook';
 import { SignupPage } from '../signup/signup';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
-import { Facebook } from '@ionic-native/facebook'
-/**
- * Generated class for the LoginPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { Facebook } from '@ionic-native/facebook';
+import { TabsPage } from '../tabs/tabs';
 
 @IonicPage()
 @Component({
@@ -18,60 +13,38 @@ import { Facebook } from '@ionic-native/facebook'
   templateUrl: 'login.html',
 })
 export class LoginPage {
+  @ViewChild('password') password;
+  @ViewChild('email') email;
   userData = null;
-constructor(private afAuth: AngularFireAuth,public navCtrl: NavController, public navParams: NavParams,public facebook: Facebook) {
+
+
+constructor(private afAuth: AngularFireAuth,public navCtrl: NavController, public navParams: NavParams,public facebook: Facebook,private toast: ToastController) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
   }
- /* fbLogin(){
-    this.fb.login(['public_profile', 'user_friends', 'email'])
-    .then((res:FacebookLoginResponse) => {
-      this.fb.api('me?fields=id,name,email,first_name,picture.width(720).height(720).as(picture_large)',[]).then(profile => {
-        this.userData = {email :profile['email'], first_name : profile['first_name'], picture: profile['picture_large']['data']['url'], username: profile['name']}
-      })
-    })
-  }*/
-
-  /*login(){
-    /*let provider = new firebase.auth.FacebookAuthProvider();
-    firebase.auth().signInWithRedirect(provider).then(()=>{
-      firebase.auth().getRedirectResult().then((result)=>{
-        alert(JSON.stringify(result));
-      }).catch(function(error){
-        alert(JSON.stringify(error))
-      });
-    })//구분선~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    this.facebook.login(['email'])
-    .then((loginResponse:FacebookLoginResponse) =>{
-      //let credential = firebase.auth.FacebookAuthProvider.credential(loginResponse.authResponse.accessToken);
-      let facebookCredential = firebase.auth.FacebookAuthProvider
-      .credential(loginResponse.authResponse.accessToken);
-
-      firebase.auth().signInWithCredential(facebookCredential)
-      .then(succese =>{
-        alert("Firebase success: "+JSON.stringify(succese));
-      }).catch(ferr=>{
-        alert("firebase errc")
-      })
-    }).catch(error=> {JSON.stringify(error)})
-    var provider = new firebase.auth.FacebookAuthProvider();
-
-    provider.addScope('email');
-
-    firebase.auth().signInWithRedirect(provider);
-
-    firebase.auth().getRedirectResult().then(function(authData) {
-      console.log(authData);
-    }).catch(function(error) {
-      console.log(error);
-    });
-  }*/
   signInWithFacebook() {
     this.afAuth.auth
       .signInWithPopup(new firebase.auth.FacebookAuthProvider())
       .then(res => console.log(res));
+  }
+  signInwithAngular(){
+    this.afAuth.auth.signInWithEmailAndPassword(this.email.value,this.password.value)
+    .then(ress => {
+      this.toast.create({
+        message: 'SignIn done',
+        duration: 3000,
+        position: 'top'
+      }).present();
+    })
+    .catch(error =>{
+      this.toast.create({
+        message: error,
+        duration: 3000,
+        position: 'top'
+      }).present();
+    })
   }
 
   signOut() {
@@ -83,6 +56,26 @@ constructor(private afAuth: AngularFireAuth,public navCtrl: NavController, publi
   }
   backPage(){
     this.navCtrl.pop();
+  }
+register(){
+    this.afAuth.auth.createUserWithEmailAndPassword(this.email.value ,this.password.value)
+    .then(data => {
+      console.log('got data',data)
+      this.toast.create({
+        message: 'Signup done',
+        duration: 3000,
+        position: 'top'
+      }).present();
+    })
+    .catch(error =>{
+      console.log('got an err', error);
+      this.toast.create({
+        message: error,
+        duration: 3000,
+        position: 'top'
+      }).present();
+    });
+    console.log('registerrrrr', this.email.value, this.password.value);
   }
   
 }
