@@ -1,11 +1,12 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams,ToastController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,ToastController, App } from 'ionic-angular';
 //import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook';
 import { SignupPage } from '../signup/signup';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
 import { Facebook } from '@ionic-native/facebook';
 import { TabsPage } from '../tabs/tabs';
+import { MyinfoPage } from '../myinfo/myinfo';
 
 @IonicPage()
 @Component({
@@ -37,6 +38,7 @@ constructor(private afAuth: AngularFireAuth,public navCtrl: NavController, publi
         duration: 3000,
         position: 'top'
       }).present();
+      this.navCtrl.setRoot(MyinfoPage);
     })
     .catch(error =>{
       this.toast.create({
