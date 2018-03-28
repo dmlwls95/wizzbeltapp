@@ -4,6 +4,8 @@ import { Content } from 'ionic-angular';
 //import firebase from 'firebase';
 import { FirebaseListObservable } from 'angularfire2/database-deprecated'
 import { FirebaseProvider } from '../../providers/firebase/firebase';
+import { AngularFireAuth } from 'angularfire2/auth';
+import { FirebaseAuth } from '@firebase/auth-types';
 
 @Component({
   selector: 'page-home',
@@ -36,16 +38,13 @@ export class HomePage {
   private lastId: any;
   private finishedLoading: boolean = false;*/
 
-  constructor(public nvCtrl:NavController, public firebaseProvider: FirebaseProvider) {
+  constructor(public nvCtrl:NavController, public firebaseProvider: FirebaseProvider,private afAuth: AngularFireAuth) {
     this.slideItems = this.firebaseProvider.getslideItems();
     this.MonthtopItems = this.firebaseProvider.getMonthtopItems();
     this.cate1topItems = this.firebaseProvider.getcate1topItems();
     this.cate2topItems = this.firebaseProvider.getcate2topItems();
 
-
-
     this.tabBarElement =document.querySelector('.tabbar');
-    
 
 
 

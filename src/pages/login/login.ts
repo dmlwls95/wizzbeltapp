@@ -7,7 +7,6 @@ import * as firebase from 'firebase/app';
 import { Facebook } from '@ionic-native/facebook';
 import { TabsPage } from '../tabs/tabs';
 import { MyinfoPage } from '../myinfo/myinfo';
-
 @IonicPage()
 @Component({
   selector: 'page-login',
@@ -17,7 +16,6 @@ export class LoginPage {
   @ViewChild('password') password;
   @ViewChild('email') email;
   userData = null;
-
 
 constructor(private afAuth: AngularFireAuth,public navCtrl: NavController, public navParams: NavParams,public facebook: Facebook,private toast: ToastController) {
   }
@@ -30,24 +28,25 @@ constructor(private afAuth: AngularFireAuth,public navCtrl: NavController, publi
       .signInWithPopup(new firebase.auth.FacebookAuthProvider())
       .then(res => console.log(res));
   }
-  signInwithAngular(){
-    this.afAuth.auth.signInWithEmailAndPassword(this.email.value,this.password.value)
-    .then(ress => {
-      this.toast.create({
-        message: 'SignIn done',
-        duration: 3000,
-        position: 'top'
-      }).present();
-      this.navCtrl.setRoot(MyinfoPage);
-    })
-    .catch(error =>{
-      this.toast.create({
-        message: error,
-        duration: 3000,
-        position: 'top'
-      }).present();
-    })
-  }
+  async signInwithAngular(){
+     const result = this.afAuth.auth.signInWithEmailAndPassword(this.email.value,this.password.value)
+      .then(ress => {
+        this.toast.create({
+          message: 'SignIn done',
+          duration: 3000,
+          position: 'top'
+        }).present();
+        this.navCtrl.setRoot(MyinfoPage);
+      })
+      .catch(error =>{
+        this.toast.create({
+          message: error,
+          duration: 3000,
+          position: 'top'
+        }).present();
+      })
+    }
+
 
   signOut() {
     this.afAuth.auth.signOut();

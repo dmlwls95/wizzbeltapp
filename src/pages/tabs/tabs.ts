@@ -11,12 +11,11 @@ import { AngularFireAuth } from 'angularfire2/auth';
   templateUrl: 'tabs.html'
 })
 export class TabsPage {
-
-  tab1Root = HomePage;
-  tab2Root = LoginPage;
-  tab3Root = SearchPage;
+  tab1Root: any = HomePage;
+  tab2Root: any = MyinfoPage;
+  tab3Root: any = SearchPage;
 
   constructor() {
-    
+
   }
 }
