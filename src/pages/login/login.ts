@@ -7,6 +7,7 @@ import * as firebase from 'firebase/app';
 import { Facebook } from '@ionic-native/facebook';
 import { TabsPage } from '../tabs/tabs';
 import { MyinfoPage } from '../myinfo/myinfo';
+
 @IonicPage()
 @Component({
   selector: 'page-login',
@@ -18,7 +19,8 @@ export class LoginPage {
   userData = null;
 
 constructor(private afAuth: AngularFireAuth,public navCtrl: NavController, public navParams: NavParams,public facebook: Facebook,private toast: ToastController) {
-  }
+  this.afAuth.auth.setPersistence(firebase.auth.Auth.Persistence.LOCAL);
+}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
@@ -36,6 +38,7 @@ constructor(private afAuth: AngularFireAuth,public navCtrl: NavController, publi
           duration: 3000,
           position: 'top'
         }).present();
+        this.afAuth.auth.setPersistence(firebase.auth.Auth.Persistence.LOCAL);
         this.navCtrl.setRoot(MyinfoPage);
       })
       .catch(error =>{

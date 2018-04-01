@@ -6,6 +6,7 @@ import { FirebaseListObservable } from 'angularfire2/database-deprecated'
 import { FirebaseProvider } from '../../providers/firebase/firebase';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { FirebaseAuth } from '@firebase/auth-types';
+import * as firebase from 'firebase/app';
 
 @Component({
   selector: 'page-home',
@@ -43,7 +44,7 @@ export class HomePage {
     this.MonthtopItems = this.firebaseProvider.getMonthtopItems();
     this.cate1topItems = this.firebaseProvider.getcate1topItems();
     this.cate2topItems = this.firebaseProvider.getcate2topItems();
-
+    
     this.tabBarElement =document.querySelector('.tabbar');
 
 
