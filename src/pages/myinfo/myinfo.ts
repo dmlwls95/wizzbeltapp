@@ -18,9 +18,20 @@ import { AngularFireAuth } from 'angularfire2/auth';
   templateUrl: 'myinfo.html',
 })
 export class MyinfoPage {
-
+  item1 = [
+    '주문목록 배송조회',
+    '취소 및 반품 내역'
+  ];
+  item2 = [
+    '배송지 변경',
+    '회원 정보 변경'
+  ];
+  item3 = [
+    '공지사항',
+    '기타'    
+  ];
   constructor(private toast: ToastController,public navCtrl: NavController, public navParams: NavParams,private afAuth:AngularFireAuth) {
-    
+  
   }
 
   ionViewDidLoad() {
@@ -49,5 +60,8 @@ export class MyinfoPage {
   }
   admin(){
     this.navCtrl.push(AdminPage)
+  }
+  itemSelected(item: string){
+    console.log("Selected Item", item);
   }
 }
