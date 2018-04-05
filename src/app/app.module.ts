@@ -10,7 +10,8 @@ import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
-import { LoginPage } from '../pages/login/login'
+import { LoginPage } from '../pages/login/login';
+import {NewsPage} from '../pages/news/news';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -41,7 +42,8 @@ import { IonicImageViewerModule } from 'ionic-img-viewer';
     SearchPage,
     MyinfoPage,
     SettingsPage,
-    AdminPage
+    AdminPage,
+    NewsPage
   ],
   imports: [
     BrowserModule,
@@ -66,7 +68,8 @@ import { IonicImageViewerModule } from 'ionic-img-viewer';
     SearchPage,
     MyinfoPage,
     SettingsPage,
-    AdminPage
+    AdminPage,
+    NewsPage
   ],
   providers: [
     StatusBar,

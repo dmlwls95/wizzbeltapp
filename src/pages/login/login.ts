@@ -19,7 +19,7 @@ export class LoginPage {
   userData = null;
 
 constructor(private afAuth: AngularFireAuth,public navCtrl: NavController, public navParams: NavParams,public facebook: Facebook,private toast: ToastController) {
-  this.afAuth.auth.setPersistence(firebase.auth.Auth.Persistence.LOCAL);
+  
 }
 
   ionViewDidLoad() {

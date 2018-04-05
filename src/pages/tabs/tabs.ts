@@ -5,6 +5,7 @@ import { SearchPage } from '../search/search';
 import { HomePage } from '../home/home';
 import { LoginPage } from '../login/login';
 import { MyinfoPage } from '../myinfo/myinfo';
+import{ NewsPage } from '../news/news';
 import { AngularFireAuth } from 'angularfire2/auth';
 
 @Component({
@@ -14,6 +15,7 @@ export class TabsPage {
   tab1Root: any = HomePage;
   tab2Root: any = MyinfoPage;
   tab3Root: any = SearchPage;
+  tab4Root: any = NewsPage;
 
   constructor() {
 
