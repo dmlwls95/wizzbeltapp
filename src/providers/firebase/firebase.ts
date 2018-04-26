@@ -7,7 +7,7 @@ export class FirebaseProvider {
   constructor(public afd: AngularFireDatabase) { }
  
   getslideItems() {
-    return this.afd.list('/mainItems/slide');
+    return this.afd.list('/mainItems/slide/&uid');
   }
  
   addslideItem(name) {

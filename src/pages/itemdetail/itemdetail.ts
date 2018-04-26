@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 /**
- * Generated class for the SidePage page.
+ * Generated class for the ItemdetailPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -10,16 +10,16 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'page-side',
-  templateUrl: 'side.html',
+  selector: 'page-itemdetail',
+  templateUrl: 'itemdetail.html',
 })
-export class SidePage {
+export class ItemdetailPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad SidePage');
+    console.log('ionViewDidLoad ItemdetailPage');
   }
 
 }

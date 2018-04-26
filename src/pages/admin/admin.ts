@@ -19,6 +19,7 @@ export class AdminPage {
   cate1topItems: FirebaseListObservable<any[]>;
   cate2topItems: FirebaseListObservable<any[]>;
   newItem = '';
+  newItemname= '';
   newMonthItme = '';
   newcate1Itme = '';
   newcate2Itme = '';
@@ -32,7 +33,6 @@ export class AdminPage {
   addslideItem() {
     this.firebaseProvider.addslideItem(this.newItem);
   }
- 
   removeslideItem(id) {
     this.firebaseProvider.removeslideItem(id);
   }
