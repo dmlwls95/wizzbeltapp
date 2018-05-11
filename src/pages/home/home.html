@@ -8,7 +8,7 @@
 
 <ion-content padding #contentRef (ionScroll)="scrollingFun($event)">
   <ion-slides pager="true" style="width:100%; height: 250px">
-    <ion-slide *ngFor="let image of slideItems | async" >
+    <ion-slide *ngFor="let image of slideItems | async" (click)="moveToDetail()" >
         <img src="{{image.$value}}">
     </ion-slide>
   </ion-slides>
@@ -17,7 +17,7 @@
     이달의 인기상품
   </ion-label>
   <ion-slides  class="image-slider" slidesPerView="3" style=" height: 150px">
-    <ion-slide *ngFor="let image of MonthtopItems | async">
+    <ion-slide *ngFor="let image of MonthtopItems | async" (click)="moveToDetail()">
       <img src="{{image.$value}}">
     </ion-slide>
   </ion-slides>
@@ -25,7 +25,7 @@
     카테고리1 인기상품
   </ion-label>
   <ion-slides  class="image-slider" slidesPerView="3" style=" height: 150px">
-    <ion-slide *ngFor="let image of cate1topItems | async">
+    <ion-slide *ngFor="let image of cate1topItems | async" (click)="moveToDetail()">
       <img src="{{image.$value}}">
     </ion-slide>
   </ion-slides>
@@ -33,7 +33,7 @@
     카테고리2 인기상품
   </ion-label>
   <ion-slides  class="image-slider" slidesPerView="3" style=" height: 150px">
-    <ion-slide *ngFor="let image of cate2topItems | async">
+    <ion-slide *ngFor="let image of cate2topItems | async" (click)="moveToDetail()">
       <img src="{{image.$value}}">
     </ion-slide>
   </ion-slides>

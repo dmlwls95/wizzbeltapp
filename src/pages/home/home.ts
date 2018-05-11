@@ -7,6 +7,7 @@ import { FirebaseProvider } from '../../providers/firebase/firebase';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { FirebaseAuth } from '@firebase/auth-types';
 import * as firebase from 'firebase/app';
+import { ItemdetailPage } from '../itemdetail/itemdetail';
 
 @Component({
   selector: 'page-home',
@@ -149,5 +150,9 @@ export class HomePage {
  
   removeslideItem(id) {
     this.firebaseProvider.removeslideItem(id);
+  }
+
+  moveToDetail(){
+    this.nvCtrl.push(ItemdetailPage);
   }
 }
