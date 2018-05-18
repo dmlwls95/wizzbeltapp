@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { FirebaseListObservable } from 'angularfire2/database-deprecated';
 
 /**
  * Generated class for the ItemdetailPage page.
@@ -14,8 +15,11 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'itemdetail.html',
 })
 export class ItemdetailPage {
+  slideItems: FirebaseListObservable<any[]>;
+  MonthtopItems: FirebaseListObservable<any[]>;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+  this.slideItems = navParams.get("slide");
   }
 
   ionViewDidLoad() {

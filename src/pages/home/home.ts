@@ -152,7 +152,9 @@ export class HomePage {
     this.firebaseProvider.removeslideItem(id);
   }
 
-  moveToDetail(){
-    this.nvCtrl.push(ItemdetailPage);
+  moveToDetail(id){
+    this.nvCtrl.push(ItemdetailPage, {
+      slide : id
+    });
   }
 }
