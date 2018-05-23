@@ -4,9 +4,11 @@
 <br>
 <button ion-button (click)="signInWithFacebook()">
   <ion-icon name="logo-facebook">
-    Login with FACEBOOK
+    페이스북으로 로그인
   </ion-icon>
 </button>
+<br>
+<button ion-button (click)="moveToPage()">회원가입</button>
 <ion-card *ngIf="userData">
   <ion-card-header>{{ userData.username}}</ion-card-header>
   <img [src]="userData.picture">
@@ -19,18 +21,17 @@
   <ion-card>
     <ion-card-content>
       <ion-item>
-        <ion-label floating>Email Address</ion-label>
+        <ion-label floating>이메일</ion-label>
         <ion-input type="text" #email></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label floating>Password</ion-label>
+        <ion-label floating>비밀번호</ion-label>
         <ion-input type="password" #password></ion-input>
       </ion-item>
     </ion-card-content>
     <ion-row>
-      <button ion-button (click)="register()">Signup</button>
-      <button ion-button (click)="signInwithAngular()">Login</button>
-      <button ion-button (click)="signOut()">SignOut</button>
+      
+      <button ion-button (click)="signInwithAngular()">로그인</button>
     </ion-row>
   </ion-card>
 

@@ -34,8 +34,8 @@ constructor(private afAuth: AngularFireAuth,public navCtrl: NavController, publi
      const result = this.afAuth.auth.signInWithEmailAndPassword(this.email.value,this.password.value)
       .then(ress => {
         this.toast.create({
-          message: 'SignIn done',
-          duration: 3000,
+          message: '로그인',
+          duration: 2000,
           position: 'top'
         }).present();
         this.afAuth.auth.setPersistence(firebase.auth.Auth.Persistence.LOCAL);
@@ -55,7 +55,7 @@ constructor(private afAuth: AngularFireAuth,public navCtrl: NavController, publi
     this.afAuth.auth.signOut();
   }
   
-  moveToPage(): void{
+  moveToPage(){
     this.navCtrl.push(SignupPage);
   }
   backPage(){
@@ -66,8 +66,8 @@ register(){
     .then(data => {
       console.log('got data',data)
       this.toast.create({
-        message: 'Signup done',
-        duration: 3000,
+        message: '회원가입 완료',
+        duration: 2000,
         position: 'top'
       }).present();
     })
@@ -75,7 +75,7 @@ register(){
       console.log('got an err', error);
       this.toast.create({
         message: error,
-        duration: 3000,
+        duration: 2000,
         position: 'top'
       }).present();
     });

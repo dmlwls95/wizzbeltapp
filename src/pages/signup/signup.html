@@ -7,13 +7,9 @@
 
 
 <ion-content padding>
+    
     <ion-item>
-        <ion-label floating>Name</ion-label>
-        <ion-input type="text" #username></ion-input>
-    </ion-item>
-
-    <ion-item>
-        <ion-label floating>Email Address</ion-label>
+        <ion-label floating>이메일</ion-label>
         <ion-input type="text" #email></ion-input>
     </ion-item>
   
@@ -21,9 +17,25 @@
         <ion-label floating>Password</ion-label>
         <ion-input type="password" #password></ion-input>
     </ion-item>
+    <br>
+    <br>
+        개인정보
+    <br>
+    <ion-item>
+        <ion-label floating>이름</ion-label>
+        <ion-input type="text" [(ngModel)]="username"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label floating>실제주소</ion-label>
+        <ion-input type="text" [(ngModel)]="address"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label floating>연락처</ion-label>
+        <ion-input type="text" [(ngModel)]="callnum"></ion-input>
+    </ion-item>
    
     <div padding>
-        <button ion-button (click)="register()" item-left>signup</button>
+        <button ion-button full (click)="register()" item-left>회원가입</button>
     </div>
 
 </ion-content>

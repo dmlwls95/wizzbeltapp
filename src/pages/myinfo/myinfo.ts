@@ -42,8 +42,8 @@ export class MyinfoPage {
         console.log('loggedout');
         this.navCtrl.setRoot(LoginPage);
         this.toast.create({
-          message: 'You should login first!',
-          duration: 3000,
+          message: '로그인해주세요',
+          duration: 2000,
           position: 'top'
         }).present();
       }

@@ -84,15 +84,22 @@ $colors: (
 // Fonts
 // --------------------------------------------------
 
-@import "roboto";
-@import "noto-sans";
-$font-family-base: "NanumBarunGothic";
-$font-family-md-base: "NanumBarunGothic";
-$font-family-ios-base: "NanumBarunGothic";
-$font-family-wp-base: "NanumBarunGothic";
+//@import "roboto";
+//@import "noto-sans";
 @font-face {
   font-family: 'NanumBarunGothic' !important;
-  src: url('../fonts/NanumBarunGothic.ttf') format('truetype');
+  src: url('../assets/fonts/NanumBarunGothic.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
+}
+
+$font-family-base: "NanumBarunGothic";
+body{
+  font-family: "NanumBarunGothic" !important;
+  font-weight: normal !important;
+}
+
+h1,h2,button,p{
+  font-family: "NanumBarunGothic" !important;
+  font-weight: normal !important;
 }
