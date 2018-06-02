@@ -86,4 +86,13 @@
     </button>
   </ion-list>
 
+  <ion-list>
+    <ion-list-header color="light">
+      로그아웃
+    </ion-list-header>
+    <button ion-item *ngFor="let item of item4" (click)="signOut()">
+      {{ item }}
+    </button>
+  </ion-list>
+
 </ion-content>

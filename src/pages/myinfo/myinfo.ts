@@ -30,6 +30,9 @@ export class MyinfoPage {
     '공지사항',
     '기타'    
   ];
+  item4 = [
+    '로그아웃'
+  ]
   constructor(private toast: ToastController,public navCtrl: NavController, public navParams: NavParams,private afAuth:AngularFireAuth) {
   
   }
@@ -63,5 +66,8 @@ export class MyinfoPage {
   }
   itemSelected(item: string){
     console.log("Selected Item", item);
+  }
+  signOut() {
+    this.afAuth.auth.signOut();
   }
 }

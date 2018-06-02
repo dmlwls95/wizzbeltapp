@@ -29,6 +29,7 @@ export class HomePage {
   MonthtopItems: FirebaseListObservable<any[]>;
   cate1topItems: FirebaseListObservable<any[]>;
   cate2topItems: FirebaseListObservable<any[]>;
+  testItems: FirebaseListObservable<any[]>;
   newItem = '';
   /*mainconArray: any =[];
   maincons = [];
@@ -45,9 +46,8 @@ export class HomePage {
     this.MonthtopItems = this.firebaseProvider.getMonthtopItems();
     this.cate1topItems = this.firebaseProvider.getcate1topItems();
     this.cate2topItems = this.firebaseProvider.getcate2topItems();
-    
+    this.testItems = this.firebaseProvider.gettestItems(1);
     this.tabBarElement =document.querySelector('.tabbar');
-
 
 
     //****************************인피니티 스크롤************* */

@@ -12,9 +12,12 @@ export class FirebaseProvider {
   getslideItems() {
     return this.afd.list('/mainItems/slide');
   }
- 
   addslideItem(name) {
     this.afd.list('/mainItems/slide').push(name);
+  }
+
+  gettestItems(name) {
+    return this.afd.list('/mainItems/slide/' + name + '/image/');
   }
  
   removeslideItem(id) {
@@ -58,7 +61,7 @@ export class FirebaseProvider {
   }
 //*************회원정보 입력 메소드 */
   addUserprofile(username:string,address:string,callnum:string,uid){
-    this.afd.database.ref('/UserProfile/Normal'+ uid ).push({
+    this.afd.database.ref('/UserProfile/Normal/'+ uid +'/').push({
       username: username,
       address: address,
       callnum: callnum
