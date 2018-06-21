@@ -16,10 +16,14 @@ export class FirebaseProvider {
     this.afd.list('/mainItems/slide').push(name);
   }
 
-  gettestItems(name) {
-    return this.afd.list('/mainItems/slide/' + name + '/image/');
+
+  gettestitem(name){
+    return this.afd.list('/SCM_Item_Reg_Request_List/'+ name + '/D05_info_file1/');
   }
- 
+  getTop(){
+    return this.afd.list('/Slidelist/');
+  }
+
   removeslideItem(id) {
     this.afd.list('/mainItems/slide').remove(id);
   }
@@ -65,7 +69,7 @@ export class FirebaseProvider {
       username: username,
       address: address,
       callnum: callnum
-
     })
   }
+
 }

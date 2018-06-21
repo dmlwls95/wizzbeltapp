@@ -35,6 +35,63 @@ export class MyinfoPage {
   ]
   constructor(private toast: ToastController,public navCtrl: NavController, public navParams: NavParams,private afAuth:AngularFireAuth) {
   
+
+    //****************************인피니티 스크롤************* */
+    /*this.mainconArray =[
+      {'image':'https://dummyimage.com/400x600/ffffff/0011ff'},
+      {'image':'https://dummyimage.com/400x600/ffffff/0011ff'},
+      {'image':'https://dummyimage.com/400x600/ffffff/0011ff'},
+      {'image':'https://dummyimage.com/400x600/ffffff/0011ff'},
+      {'image':'https://dummyimage.com/400x600/ffffff/0011ff'},
+  ]; //밑으로 들어가는 메인 컨텐츠 어레이
+    this.infiMain =[
+      {'image':'https://dummyimage.com/400x600/ffffff/0011ff'},
+      {'image':'https://dummyimage.com/400x600/ffffff/0011ff'},
+      {'image':'https://dummyimage.com/400x600/ffffff/0011ff'},
+      {'image':'https://dummyimage.com/400x600/ffffff/0011ff'},
+      {'image':'https://dummyimage.com/400x600/ffffff/0011ff'},
+      {'image':'https://dummyimage.com/400x600/ffffff/0011ff'},
+      {'image':'https://dummyimage.com/400x600/ffffff/0011ff'},
+      {'image':'https://dummyimage.com/400x600/ffffff/0011ff'},
+      {'image':'https://dummyimage.com/400x600/ffffff/0011ff'},
+      {'image':'https://dummyimage.com/400x600/ffffff/0011ff'},
+      {'image':'https://dummyimage.com/400x600/ffffff/0011ff'},
+      {'image':'https://dummyimage.com/400x600/ffffff/0011ff'},
+      {'image':'https://dummyimage.com/400x600/ffffff/0011ff'},
+      {'image':'https://dummyimage.com/400x600/ffffff/0011ff'},
+      {'image':'https://dummyimage.com/400x600/ffffff/0011ff'},
+      {'image':'https://dummyimage.com/400x600/ffffff/0011ff'},
+      {'image':'https://dummyimage.com/400x600/ffffff/0011ff'},
+      {'image':'https://dummyimage.com/400x600/ffffff/0011ff'},
+      {'image':'https://dummyimage.com/400x600/ffffff/0011ff'},
+      {'image':'https://dummyimage.com/400x600/ffffff/0011ff'},
+      {'image':'https://dummyimage.com/400x600/ffffff/0011ff'},
+      {'image':'https://dummyimage.com/400x600/ffffff/0011ff'},
+      {'image':'https://dummyimage.com/400x600/ffffff/0011ff'},
+      {'image':'https://dummyimage.com/400x600/ffffff/0011ff'},
+      {'image':'https://dummyimage.com/400x600/ffffff/0011ff'},
+      {'image':'https://dummyimage.com/400x600/ffffff/0011ff'},
+      {'image':'https://dummyimage.com/400x600/ffffff/0011ff'},
+      {'image':'https://dummyimage.com/400x600/ffffff/0011ff'}
+    ]//추가 로딩 어레이
+    for(let i =0; i<3; i++){
+      this.mainconArray.push(this.mainconArray[this.maincons.length]);
+    }
+  }
+  loadContents(event){
+    console.log('loading contents started');
+
+    setTimeout(() => {
+      for(let i =0; i<7; i++){
+        this.mainconArray.push(this.infiMain[this.maincons.length]);
+      }
+      console.log('loading contents ended');
+
+      event.complete();
+
+    },3500);
+  }*/
+//****************************인피니티 스크롤 끝************* */
   }
 
   ionViewDidLoad() {
