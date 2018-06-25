@@ -17,8 +17,8 @@
     test
   </ion-label>
   <ion-slides  class="image-slider" slidesPerView="3" style=" height: 150px">
-    <ion-slide *ngFor="let image of testItems | async" (click)="moveToDetail(testItems)">
-      <img src="{{image.$value}}">
+    <ion-slide *ngFor="let item of items " (click)="testDetail(item)">
+      <img src="{{item.infofile2}}" >
     </ion-slide>
   </ion-slides>
   <ion-label>

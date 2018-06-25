@@ -17,9 +17,10 @@ export class FirebaseProvider {
   }
 
 
-  gettestitem(name){
-    return this.afd.list('/SCM_Item_Reg_Request_List/'+ name + '/D05_info_file1/');
+  gettestitem(brandname){
+    return this.afd.list('/SCM_Item_Reg_Request_List/' + brandname);
   }
+  
   getTop(){
     return this.afd.list('/Slidelist/');
   }

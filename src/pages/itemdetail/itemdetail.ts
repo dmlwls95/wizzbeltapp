@@ -1,13 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Modal } from 'ionic-angular';
 import { FirebaseListObservable } from 'angularfire2/database-deprecated';
 import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
-/**
- * Generated class for the ItemdetailPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { PaymentPage } from '../payment/payment';
+import { ModalController } from 'ionic-angular';
 
 @IonicPage()
 @Component({
@@ -15,7 +11,8 @@ import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
   templateUrl: 'itemdetail.html',
 })
 export class ItemdetailPage {
-  slideItems: FirebaseListObservable<any[]>;
+  //slideItems: FirebaseListObservable<any[]>;
+  public slideItems : Array<any> =[];
   MonthtopItems: FirebaseListObservable<any[]>;
 
 
@@ -25,13 +22,18 @@ export class ItemdetailPage {
   };
   trustedVideoUrl: SafeResourceUrl;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,private domSanitizer: DomSanitizer) {
-  this.slideItems = navParams.get("slide");
+  constructor(public navCtrl: NavController, public navParams: NavParams,private domSanitizer: DomSanitizer, private modal: ModalController) {
+  this.slideItems.push(navParams.get("slide"));
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ItemdetailPage');
-    this.trustedVideoUrl = this.domSanitizer.bypassSecurityTrustResourceUrl(this.video.url);
+    this.trustedVideoUrl = this.domSanitizer.bypassSecurityTrustResourceUrl(this.slideItems[0].youtubeurl);
+  }
+  
+  goPayment(){
+    const myModal = this.modal.create('PaymentPage')
+    myModal.present();
   }
 
 }

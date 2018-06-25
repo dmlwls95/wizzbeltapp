@@ -11,23 +11,25 @@ import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { LoginPage } from '../pages/login/login';
-import {NewsPage} from '../pages/news/news';
+import { NewsPage } from '../pages/news/news';
 import { ItemdetailPage } from '../pages/itemdetail/itemdetail';
+import { SettingsPage } from '../pages/settings/settings'
+import { SearchPage } from '../pages/search/search';
+import { SignupPage } from '../pages/signup/signup';
+import { MyinfoPage } from '../pages/myinfo/myinfo';
+import { PaymentPage } from '../pages/payment/payment';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Facebook } from '@ionic-native/facebook';
-import { SignupPage } from '../pages/signup/signup';
-import { SearchPage } from '../pages/search/search';
 import { environment } from '../environments/environment';
-import { MyinfoPage } from '../pages/myinfo/myinfo';
 import { ElasticHeaderModule } from "ionic2-elastic-header/dist";
-import { SettingsPage } from '../pages/settings/settings'
 import { FirebaseProvider } from '../providers/firebase/firebase';
 import { AngularFireDatabaseModule } from 'angularfire2/database-deprecated';
 import { AdminPage } from '../pages/admin/admin';
 import { AngularFireDatabase } from 'angularfire2/database'
 import { HttpClientModule, HttpClient } from '@angular/common/http';
+
 
 import { IonicImageViewerModule } from 'ionic-img-viewer';
 

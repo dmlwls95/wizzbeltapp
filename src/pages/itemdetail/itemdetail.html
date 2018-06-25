@@ -14,14 +14,22 @@
 
 <ion-content padding>
     <ion-slides pager="true" style="width:100%; height: 250px">
-        <ion-slide *ngFor="let image of slideItems | async">
-            <img src="{{image.$value}}">
+        <ion-slide *ngFor="let image of slideItems">
+            <img src="{{image.infofile1}}">
         </ion-slide>
       </ion-slides>
      <br>
-
+      
      <iframe width="100%" height="315" [src]="trustedVideoUrl" frameborder="0" allowfullscreen></iframe>
-     <h2>{{ video?.title }}</h2>
+     <!--<h2>{{ video?.title }}</h2>-->
+     
+     <h2>{{ slideItems[0].itemname}}</h2>
+     <h3>{{ slideItems[0].customerprice}}</h3>
+     <p>{{ slideItems[0].maincontents}}</p>
+     <p>{{ slideItems[0].notice}}</p>
+     <p><small>{{ slideItems[0].weight}}</small></p>
+     <p><small>{{ slideItems[0].itemorigin}}</small></p>
+     <p><small>{{ slideItems[0].requestdate}}</small></p>
 
 </ion-content>
 
@@ -29,7 +37,7 @@
   <ion-toolbar>
     <p><ion-icon name="heart"></ion-icon></p>
     <ion-buttons end>
-      <button ion-button icon-right color="danger">
+      <button ion-button icon-right color="danger" (click)="goPayment()">
         BUYNOW
       </button>
     </ion-buttons>

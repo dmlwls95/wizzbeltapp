@@ -30,8 +30,13 @@ export class HomePage {
   cate1topItems: FirebaseListObservable<any[]>;
   cate2topItems: FirebaseListObservable<any[]>;
   testItems: FirebaseListObservable<any[]>;
+
+
+  tops: FirebaseListObservable<any[]>;
   newItem = '';
 
+  public items: Array<any> = [];
+  
   constructor(public nvCtrl:NavController, public firebaseProvider: FirebaseProvider,private afAuth: AngularFireAuth) {
  
 
@@ -42,8 +47,38 @@ export class HomePage {
     
     this.tabBarElement =document.querySelector('.tabbar');
 
-    this.testItems = this.firebaseProvider.gettestitem('PixxaDev');
+    this.testItems = this.firebaseProvider.gettestitem('PixxaDev'); 
+    
+    
 
+    this.testItems.$ref.once('value', snapshot =>{
+      this.items =[];
+      if(snapshot.val()){
+        var tempProducts = snapshot.val();
+        for(var key in tempProducts){
+          let singleProduct = {
+            productname:key,
+            agreement : tempProducts[key].D00_agreement,
+            requestdate : tempProducts[key].D00_request_date,
+            brandname : tempProducts[key].D01_brand_name,
+            itemname : tempProducts[key].D02_item_name,
+            maincontents : tempProducts[key].D03_main_contents,
+            notice : tempProducts[key].D04_notice_order,
+            infofile1 : tempProducts[key].D05_info_file1,
+            infofile2 : tempProducts[key].D06_info_file2,
+            infofile3 : tempProducts[key].D07_info_file3,
+            supplyprice : tempProducts[key].D08_supply_price,
+            customerprice : tempProducts[key].D09_customer_price,
+            itemorigin : tempProducts[key].D10_item_origin,
+            weight : tempProducts[key].D11_weight,
+            youtubeurl : tempProducts[key].D12_youtube_url
+          };
+          this.items.push(singleProduct);
+        }
+      }
+      console.log(this.items);
+    })
+    
   }
   ionViewDidLoad() {
     this.tabBarElement.style.display = 'none';
@@ -93,8 +128,14 @@ export class HomePage {
   }
 
   moveToDetail(id){
-    this.nvCtrl.push(ItemdetailPage, {
-      slide : id
-    });
+    this.nvCtrl.push(ItemdetailPage, {slide : id});
   }
+  itemSelected(item: string){
+    console.log("Selected Item", item);
+  }
+  testDetail(id){
+    this.nvCtrl.push(ItemdetailPage, {slide : id});
+    //console.log("Selected Item", item);
+  }
+
 }
