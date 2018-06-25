@@ -78,7 +78,7 @@ export class FirebaseProvider {
 
 //*************결제 정보 입력 메소드 */
   addPayment(username:string,address:string,callnum:string, product ,uid, brandname){
-    this.afd.database.ref('/payment/'+ uid +'/' + brandname + '/').push({
+    this.afd.database.ref('/payment/'+ brandname +'/' + uid + '/').push({
       username: username,
       address: address,
       callnum: callnum,
