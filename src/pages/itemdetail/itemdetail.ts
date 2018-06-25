@@ -32,7 +32,8 @@ export class ItemdetailPage {
   }
   
   goPayment(){
-    const myModal = this.modal.create('PaymentPage')
+    const myModal = this.modal.create('PaymentPage', {payinfo : this.slideItems})
+
     myModal.present();
   }
 

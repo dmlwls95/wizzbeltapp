@@ -64,7 +64,7 @@ export class FirebaseProvider {
   removecate2topItem(id) {
     this.afd.list('/mainItems/cate2').remove(id);
   }
-//*************회원정보 입력 메소드 */
+//*************회원정보 입출력 메소드 */
   addUserprofile(username:string,address:string,callnum:string,uid){
     this.afd.database.ref('/UserProfile/Normal/'+ uid +'/').push({
       username: username,
@@ -72,5 +72,17 @@ export class FirebaseProvider {
       callnum: callnum
     })
   }
+  getUserprofile(uid){
+    return this.afd.list('/UserProfile/Normal/'+ uid );
+  }
 
+//*************결제 정보 입력 메소드 */
+  addPayment(username:string,address:string,callnum:string, product ,uid, brandname){
+    this.afd.database.ref('/payment/'+ uid +'/' + brandname + '/').push({
+      username: username,
+      address: address,
+      callnum: callnum,
+      product: product
+    })
+  }
 }
